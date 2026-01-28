@@ -15,11 +15,19 @@ public class Pet  {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long Id;
     private String nome;
     private int idade;
     private String raca;
     private Porte porte;
     private Tipo tipo;
+
+    public Pet( String nome, int idade, String raca,  Tipo tipo,  Porte porte) {
+        this.nome = nome;
+        this.idade = idade;
+        this.raca = raca;
+        this.tipo = tipo;
+        this.porte = porte;
+    }
 }
