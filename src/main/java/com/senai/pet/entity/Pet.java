@@ -1,7 +1,7 @@
 package com.senai.pet.entity;
 
-import com.senai.pet.enums.Porte;
-import com.senai.pet.enums.Tipo;
+import com.senai.pet.enums.pet.Porte;
+import com.senai.pet.enums.pet.Tipo;
 import jakarta.persistence.*;
 import lombok.*;
 

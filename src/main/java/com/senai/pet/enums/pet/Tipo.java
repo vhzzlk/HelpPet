@@ -1,4 +1,4 @@
-package com.senai.pet.enums;
+package com.senai.pet.enums.pet;
 
 public enum Tipo {
     CACHORRO,

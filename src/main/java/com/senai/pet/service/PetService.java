@@ -1,14 +1,15 @@
 package com.senai.pet.service;
 
-import com.senai.pet.dto.RequestPetDTO;
-import com.senai.pet.dto.ResponsePetDTO;
+import com.senai.pet.dto.pet.RequestPetDTO;
+import com.senai.pet.dto.pet.ResponsePetDTO;
 import com.senai.pet.entity.Pet;
-import com.senai.pet.exception.PetException;
+import com.senai.pet.exception.pet.PetDeleteNotFoundException;
+import com.senai.pet.exception.pet.PetGetNotFoundException;
+import com.senai.pet.exception.pet.PetUpdateNotFoundException;
 import com.senai.pet.repository.PetRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PetService {
@@ -21,10 +22,6 @@ public class PetService {
 
     public ResponsePetDTO cadastrar(RequestPetDTO dto){
 
-        if (petRepository.findAll().stream()
-                .anyMatch(p -> p.getNome() != null && p.getNome().equalsIgnoreCase(dto.getNome()))) {
-            throw new PetException();
-        }
         Pet pet = new Pet(dto.getNome(),dto.getIdade(),dto.getRaca(),dto.getTipo(),dto.getPorte());
         petRepository.save(pet);
         return new ResponsePetDTO(pet);
@@ -35,15 +32,21 @@ public class PetService {
     }
 
     public Pet ListarPorId(Long id){
-        Optional<Pet> optionalPet = petRepository.findById(id);
-        return optionalPet.get();
+        return petRepository.findById(id)
+                .orElseThrow(() -> new PetGetNotFoundException(id));
     }
 
     public void deletar(Long id){
+        if (!petRepository.existsById(id)) {
+            throw new PetDeleteNotFoundException(id);
+        }
         petRepository.deleteById(id);
     }
 
     public Pet atualizar(Pet pet, Long id){
+        if (!petRepository.existsById(id)) {
+            throw new PetUpdateNotFoundException(id);
+        }
         pet.setId(id);
         return petRepository.save(pet);
     }

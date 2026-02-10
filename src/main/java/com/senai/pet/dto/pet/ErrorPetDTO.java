@@ -1,4 +1,4 @@
-package com.senai.pet.dto;
+package com.senai.pet.dto.pet;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

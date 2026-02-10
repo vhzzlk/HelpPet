@@ -1,4 +1,4 @@
-package com.senai.pet.dto;
+package com.senai.pet.dto.pet;
 
 import com.senai.pet.entity.Pet;
 import jakarta.validation.constraints.NotBlank;
