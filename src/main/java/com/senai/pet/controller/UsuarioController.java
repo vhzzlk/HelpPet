@@ -2,7 +2,6 @@ package com.senai.pet.controller;
 
 import com.senai.pet.dto.usuario.RequestUsuarioDTO;
 import com.senai.pet.dto.usuario.ResponseUsuarioDTO;
-import com.senai.pet.entity.Usuario;
 import com.senai.pet.service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;

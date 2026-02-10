@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository <Usuario, Long> {
-    // buscar por email e top dms!
+
     Usuario findByEmail(String email);
 }

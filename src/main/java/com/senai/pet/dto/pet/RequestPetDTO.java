@@ -16,9 +16,9 @@ import lombok.Setter;
 public class RequestPetDTO {
     @NotBlank
     private String nome;
-
+    @NotBlank
     private int idade;
-
+    @NotBlank
     private String raca;
 
     private Porte porte;

@@ -1,7 +1,6 @@
 package com.senai.pet.dto.pet;
 
 import com.senai.pet.entity.Pet;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ResponsePetDTO {
-    @NotBlank
+
     private String nome;
 
     private int idade;
